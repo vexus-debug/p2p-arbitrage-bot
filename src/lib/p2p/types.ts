@@ -19,8 +19,8 @@ export interface P2PAd {
   maxOrder: number; // in fiat
   paymentMethods: string[]; // canonical names
   merchantName: string;
-  completionRate?: number; // 0..100
-  orderCount?: number;
+  completionRate?: number | undefined; // 0..100
+  orderCount?: number | undefined;
   timestamp: number; // epoch ms when this ad snapshot was taken
   adId: string;
 }
@@ -33,14 +33,14 @@ export interface PlatformHealth {
   platform: PlatformId;
   label: string;
   status: ConnectionStatus;
-  message?: string;
+  message?: string | undefined;
   lastSuccessAt: number | null;
   latencyMs: number | null;
   adCount: number;
   /** Platform trading fee for the taker side, when officially known. */
   feeKnown: boolean;
-  buyFeePct?: number;
-  sellFeePct?: number;
+  buyFeePct?: number | undefined;
+  sellFeePct?: number | undefined;
 }
 
 export interface ScanResult {
